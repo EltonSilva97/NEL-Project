@@ -29,7 +29,7 @@ class GPWrapper(BaseEstimator):
                  minimization=  True,
                  dataset_name="custom",
                  log_path="./logs",
-                 log_level=gsgp_solve_parameters["log"],
+                 log_level=2,
                  #verbose=gsgp_solve_parameters["verbose"],
                  verbose=0,
                  n_jobs= gsgp_solve_parameters["n_jobs"],
@@ -87,6 +87,7 @@ class GPWrapper(BaseEstimator):
             y_train=y_train,
             X_test=X_test,  # No validation during grid search fit
             y_test=y_test,
+            test_elite=True,
             dataset_name=self.dataset_name,
             fitness_function=self.fitness_function,
             minimization=self.minimization,
@@ -99,7 +100,7 @@ class GPWrapper(BaseEstimator):
             n_iter=self.n_iter,
             elitism=self.elitism,
             n_elites=self.n_elites,
-            test_elite=False,  # No validation during fitting
+
             log_path=self.log_path,
             log_level=self.log_level,
             verbose=self.verbose,
