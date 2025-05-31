@@ -24,7 +24,7 @@ def run_nested_cv_for_model(X,y, estimator, param_grid, outer_cv, inner_cv, mode
             estimator=estimator,
             param_grid=param_grid,
             cv=inner_cv,
-            scoring=None, #will use the scoring of the model
+            scoring= 'neg_root_mean_squared_error',
             verbose=0,
             n_jobs=1
         )
